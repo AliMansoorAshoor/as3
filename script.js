@@ -4,8 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => {
       const records = data.records;
       const tableBody = document.getElementById('data-table-body');
-      records.forEach(record => {
+      records.forEach((record, index) => {
         const row = document.createElement('tr');
+        const indexCell = document.createElement('td');
+        indexCell.textContent = index + 1;
         const yearCell = document.createElement('td');
         yearCell.textContent = record.fields.year;
         const semesterCell = document.createElement('td');
@@ -18,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         collegesCell.textContent = record.fields.colleges;
         const numberOfStudentsCell = document.createElement('td');
         numberOfStudentsCell.textContent = record.fields.number_of_students;
+        row.appendChild(indexCell);
         row.appendChild(yearCell);
         row.appendChild(semesterCell);
         row.appendChild(programCell);
