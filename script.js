@@ -6,12 +6,24 @@ document.addEventListener('DOMContentLoaded', () => {
       const tableBody = document.getElementById('data-table-body');
       records.forEach(record => {
         const row = document.createElement('tr');
+        const yearCell = document.createElement('td');
+        yearCell.textContent = record.fields.year;
+        const semesterCell = document.createElement('td');
+        semesterCell.textContent = record.fields.semester;
+        const programCell = document.createElement('td');
+        programCell.textContent = record.fields.the_program;
         const nationalityCell = document.createElement('td');
         nationalityCell.textContent = record.fields.nationality;
-        const countCell = document.createElement('td');
-        countCell.textContent = record.fields.count;
+        const collegesCell = document.createElement('td');
+        collegesCell.textContent = record.fields.colleges;
+        const numberOfStudentsCell = document.createElement('td');
+        numberOfStudentsCell.textContent = record.fields.number_of_students;
+        row.appendChild(yearCell);
+        row.appendChild(semesterCell);
+        row.appendChild(programCell);
         row.appendChild(nationalityCell);
-        row.appendChild(countCell);
+        row.appendChild(collegesCell);
+        row.appendChild(numberOfStudentsCell);
         tableBody.appendChild(row);
       });
     })
